@@ -1,0 +1,225 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+getgenv().SecureMode = true
+
+local Window = Rayfield:CreateWindow({
+   Name = "Muscle Monsters",
+   LoadingTitle = "Muscle Monsters Loading",
+   LoadingSubtitle = "by Moon",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Muscle Monsters",
+      Subtitle = "Key System",
+      Note = "Script for Fun",
+      FileName = "Fun", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Muscle Monsters Cherif"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+-- Value
+_G.autoWeight = true
+_G.autoRebirth = true
+_G.autoM = true
+
+
+-- function
+
+function autoWeight()
+   while _G.autoWeight == true do
+   local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Weight.RepGain
+}
+
+game:GetService("ReplicatedStorage").REvents.GainLeaderstats:InvokeServer(unpack(args))
+     wait(.000000000000000000000000001)
+    end
+end
+
+function autoRebirth()
+   while _G.autoRebirth == true do
+   game:GetService("ReplicatedStorage").REvents.RebirthsEvent:InvokeServer()
+        wait(.000000000000000000000000001)
+       end
+end
+
+function autoM()
+   while _G.autoM == true do
+   local args = {
+    [1] = false
+}
+
+game:GetService("ReplicatedStorage").REvents.GainMachineEvent:FireServer(unpack(args))
+        wait(.000000000000000000000000001)
+       end
+end
+
+
+-- Tabs
+local Main = Window:CreateTab("Main♾️", 4483362458) -- Title,Image
+local Teleport = Window:CreateTab("Teleport🌎", 4483362458) -- Title,Image
+
+-- Section
+local Section = Main:CreateSection("Testers")
+Section:Set("I Make Script For Fun only")
+local Section = Teleport:CreateSection("Testers")
+Section:Set("I Make Script For Fun Only")
+
+-- Paragraph
+local Paragraph = Main:CreateParagraph({Title = "Note", Content = "Only Make Scripts For Fun"})
+local Paragraph = Teleport:CreateParagraph({Title = "Note", Content = "Only Makr Scripts For Fun"})
+
+-- notification
+Rayfield:Notify({
+   Title = "Massage",
+   Content = "This Script only For fun",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+-- Label
+
+local Label = Main:CreateLabel("Auto Farmers")
+local Label = Teleport:CreateLabel("Teleports")
+
+-- Buttons
+local Button = Main:CreateButton({
+   Name = "Auto Gems 💎",
+   Callback = function()
+   local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+local Gems = workspace:WaitForChild("Gems") -- Replace with the actual folder containing gems
+
+-- Teleport each gem to the player's position
+for _, gem in pairs(Gems:GetChildren()) do
+    if gem:IsA("BasePart") then
+        gem.CFrame = character.HumanoidRootPart.CFrame
+    end
+end
+   end,
+})
+
+
+local Button = Teleport:CreateButton({
+   Name = "🌊 Spawn",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-325.026306, 55.8445053, 1031.74182, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+   end,
+})
+
+
+local Button = Teleport:CreateButton({
+   Name = "Golden Stage 🪙",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(18277.8477, 85.8275299, 841.734131, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+   end,
+})
+
+
+local Button = Teleport:CreateButton({
+   Name = "King 👑",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-6797.48584, -66.5433578, 913.698853, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+   end,
+})
+
+
+local Button = Teleport:CreateButton({
+   Name = "Normal Bags👊",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-144.560928, -51.3724022, 1475.7854, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+   end,
+})
+
+
+local Button = Teleport:CreateButton({
+   Name = "Golden Bags 🌟",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(18298.2324, 3.20447278, 1000.51123, 0.300611377, 0.00958284736, -0.953698575, 0.0123671181, 0.999826312, 0.013944529, 0.953666508, -0.0159863867, 0.300440669)
+   end,
+})
+
+
+local Button = Teleport:CreateButton({
+   Name = "King Bag 👑 ",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-7101.00488, -50.8940125, 842.302795, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+   end,
+})
+
+
+local Button = Teleport:CreateButton({
+   Name = "Legend Bag 🔥",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(1411.26318, -66.9164124, 5430.54639, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+   end,
+})
+
+
+-- Toggle
+local Toggle = Main:CreateToggle({
+   Name = "Auto Weight🥁",
+   CurrentValue = false,
+   Flag = "Toggle2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   _G.autoWeight = true
+   autoWeight()
+   end,
+})
+
+local Toggle = Main:CreateToggle({
+   Name = "Auto Rebirth🌀",
+   CurrentValue = false,
+   Flag = "Toggle2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   _G.autoRebirth = true
+   autoRebirth()
+   end,
+})
+
+local Toggle = Main:CreateToggle({
+   Name = "Auto Unknown 😂",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   _G.autoM = true
+   autoM()
+   end,
+})
+
+
+
+
+
+
+
+
+
+
+Rayfield:LoadConfiguration()
