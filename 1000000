@@ -1,0 +1,456 @@
+getgenv().Setting = {
+    ["Hunt"] = {
+        ["Team"] = "Pirates",
+        ["Min"] = 0,
+        ["Max"] = 30000000,
+    },
+    ["Webhook"] = {
+        ["Enabled"] = true, 
+        ["Url"] = "https://discord.com/api/webhooks/1290353521941807353/L1tsPm4H6jqSgRX6M3YKTzb4y7g1o71rHXBM_M73LaeWCCcekBAASEhUJ46OgdKCEDty"
+    },
+    ["Skip"] = {
+        ["V4"] = true,
+        ["Fruit"] = true,
+        ["FruitList"] = {
+            "Leopard",
+            "Venom",
+            "Dough",
+            "Portal"
+        }
+    },
+    ["Chat"] = {
+        ["Enabled"] = false,
+        ["List"] = {""},
+    },
+    ["Click"] = {
+        ["AlwaysClick"] = false,
+        ["FastClick"] = false
+    },
+    ["Another"] = {
+        ["V3"] = true,
+        ["CustomHealth"] = true,
+        ["Health"] = 12000,
+        ["V4"] = true,
+        ["LockCamera"] = false,
+        ["FPSBoots"] = false,
+        ["WhiteScreen"] = false,
+        ["BypassTp"] = true
+    },
+    ["SafeHealth"] = {
+        ["Health"] = 6000,
+        ["HighY"] = 1500
+    },
+    ["Melee"] = {
+        ["Enable"] = true,
+        ["Delay"] = 2.5,
+        ["Z"] = {["Enable"] = true, ["HoldTime"] = 1.25},
+        ["X"] = {["Enable"] = true, ["HoldTime"] = 0},
+        ["C"] = {["Enable"] = true, ["HoldTime"] = 0},
+        ["V"] = {["Enable"] = false, ["HoldTime"] = 0}
+    },
+    ["Fruit"] = {
+        ["Enable"] = true,
+        ["Delay"] = 2,
+        ["Z"] = {["Enable"] = true, ["HoldTime"] = 0},
+        ["X"] = {["Enable"] = true, ["HoldTime"] = 0},
+        ["C"] = {["Enable"] = true, ["HoldTime"] = 0},
+        ["V"] = {["Enable"] = true, ["HoldTime"] = 1.25},
+        ["F"] = {["Enable"] = false, ["HoldTime"] = 0}
+    },
+    ["Sword"] = {
+        ["Enable"] = false,
+        ["Delay"] = 1,
+        ["Z"] = {["Enable"] = true, ["HoldTime"] = 0},
+        ["X"] = {["Enable"] = true, ["HoldTime"] = 0}
+    },
+    ["Gun"] = {
+        ["Enable"] = false,
+        ["GunMode"] = false, 
+        ["Delay"] = 1.75,
+        ["Z"] = {["Enable"] = true, ["HoldTime"] = 0},
+        ["X"] = {["Enable"] = true, ["HoldTime"] = 0}
+    }
+}
+local memaythangskidocnguloz = "\104\116\116\112\115://\114\97\119.\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116.\99\111\109/\72\105\114\105\109\105\105/\102\52\99\107\121\111\117/\109\97\105\110\47\99\99\108\117\97"
+local cl = "\104\116\116\112\115://\114\97\119.\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116.\99\111\109/\72\105\114\105\109\105\105/\102\52\99\107\121\111\117/\109\97\105\110\47\99\99\108\117\97"
+local memaybeo = "\104\116\116\112\115://\114\97\119.\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116.\99\111\109/\72\105\114\105\109\105\105/\102\52\99\107\121\111\117/\109\97\105\110\47\99\99\108\117\97"
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.Players
+repeat task.wait() until game.Players.LocalPlayer
+repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+--- Join Team
+if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+    repeat wait()
+        if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
+            if getgenv().Setting.Hunt.Team == "Marines" then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam", "Marines")
+            else
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam", "Pirates")
+            end
+        end
+    until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+end
+--- Check World/Tween + Bypass
+if game.PlaceId == 7449423635 then
+    World3 = true
+else
+    game.Players.LocalPlayer:Kick("Only Support BF Sea 3")
+end 
+if World3 then 
+    distbyp = 5000
+    island = {
+    ["Port Town"] = CFrame.new(-290.7376708984375, 6.729952812194824, 5343.5537109375),
+    ["Hydra Island"] = CFrame.new(5749.7861328125 + 50, 611.9736938476562, -276.2497863769531),
+    ["Mansion"] = CFrame.new(-12471.169921875 + 50, 374.94024658203, -7551.677734375),
+    ["Castle On The Sea"] = CFrame.new(-5085.23681640625 + 50, 316.5072021484375, -3156.202880859375),
+    ["Haunted Island"] = CFrame.new(-9547.5703125, 141.0137481689453, 5535.16162109375),
+    ["Great Tree"] = CFrame.new(2681.2736816406, 1682.8092041016, -7190.9853515625),
+    ["Candy Island"] = CFrame.new(-1106.076416015625, 13.016114234924316, -14231.9990234375),
+    ["Cake Island"] = CFrame.new(-1903.6856689453125, 36.70722579956055, -11857.265625),
+    ["Loaf Island"] = CFrame.new(-889.8325805664062, 64.72842407226562, -10895.8876953125),
+    ["Peanut Island"] = CFrame.new(-1943.59716796875, 37.012996673583984, -10288.01171875),
+    ["Cocoa Island"] = CFrame.new(147.35205078125, 23.642955780029297, -12030.5498046875),
+    ["Tiki Outpost"] = CFrame.new(-16234,9,416)
+    } 
+elseif World2 then 
+    distbyp = 3500
+    island = { 
+    a = CFrame.new(753.14288330078, 408.23559570313, -5274.6147460938),
+    b = CFrame.new(-5622.033203125, 492.19604492188, -781.78552246094),
+    c= CFrame.new(-11.311455726624, 29.276733398438, 2771.5224609375),
+    d= CFrame.new(-2448.5300292969, 73.016105651855, -3210.6306152344),
+    e=CFrame.new(-380.47927856445, 77.220390319824, 255.82550048828), 
+    f=CFrame.new(-3032.7641601563, 317.89672851563, -10075.373046875),
+    g=CFrame.new(6148.4116210938, 294.38687133789, -6741.1166992188),
+    h=CFrame.new(923.40197753906, 125.05712890625, 32885.875),
+    i=CFrame.new(-6127.654296875, 15.951762199402, -5040.2861328125),
+    }
+elseif World1 then 
+    distbyp = 1500
+    island = { 
+    a = CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594), 
+    b = CFrame.new(-2566.4296875, 6.8556680679321, 2045.2561035156), 
+    c = CFrame.new(944.15789794922, 20.919729232788, 4373.3002929688), 
+    d = CFrame.new(-1181.3093261719, 4.7514905929565, 3803.5456542969), 
+    e =CFrame.new(-1612.7957763672, 36.852081298828, 149.12843322754), 
+    f = CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094) ,
+    g = CFrame.new(-4607.82275, 872.54248, -1667.55688), 
+    h = CFrame.new(-7952.31006, 5545.52832, -320.704956),
+    i = CFrame.new(-4914.8212890625, 50.963626861572, 4281.0278320313),
+    j = CFrame.new(-1427.6203613281, 7.2881078720093, -2792.7722167969),
+    k = CFrame.new(1347.8067626953, 104.66806030273, -1319.7370605469),
+    l = CFrame.new(5127.1284179688, 59.501365661621, 4105.4458007813),
+    m = CFrame.new(61163.8515625, 11.6796875, 1819.7841796875),
+    n = CFrame.new(-5247.7163085938, 12.883934020996, 8504.96875),
+    o =CFrame.new(4875.330078125, 5.6519818305969, 734.85021972656),
+    p = CFrame.new(-4813.0249, 903.708557, -1912.69055),
+    q = CFrame.new(-4970.21875, 717.707275, -2622.35449),
+    } 
+end
+local p = game.Players
+local lp = p.LocalPlayer
+
+local rs = game.RunService
+local hb = rs.Heartbeat
+local rends = rs.RenderStepped
+local webhook = {} 
+
+getgenv().weapon = nil
+getgenv().targ = nil 
+getgenv().lasttarrget = nil
+getgenv().checked = {}
+getgenv().pl = p:GetPlayers()
+wait(1)
+--- Tween / Bypass ---
+function bypass(Pos)   
+    if lp.Character:FindFirstChild("Head") and lp.Character:FindFirstChild("HumanoidRootPart") and lp.Character:FindFirstChild("Humanoid") then
+        dist = math.huge
+        is = nil
+        for i , v in pairs(island) do
+            if (Pos.Position-v.Position).magnitude < dist then
+                is = v 
+                dist = (Pos.Position-v.Position).magnitude 
+            end
+        end 
+        if is == nil then return; end
+        if lp:DistanceFromCharacter(Pos.Position) > distbyp then 
+            if (lp.Character.Head.Position-Pos.Position).magnitude > (is.Position-Pos.Position).magnitude then
+                if tween then
+                    tween:Destroy()
+                end
+                if (is.X == 61163.8515625 and is.Y ==11.6796875 and is.Z == 1819.7841796875) or is == CFrame.new(-12471.169921875 + 50, 374.94024658203, -7551.677734375) or is == CFrame.new(-5085.23681640625 + 50, 316.5072021484375, -3156.202880859375) or is == CFrame.new(5749.7861328125 + 50, 611.9736938476562, -276.2497863769531) then
+                    if tween then
+                       tween:Cancel()
+                    end
+                    repeat task.wait()
+                        lp.Character.HumanoidRootPart.CFrame = is  
+                    until lp.Character.PrimaryPart.CFrame == is   
+                    task.wait(0.1)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                else
+                    if not stopbypass then
+                        if tween then
+                           tween:Cancel()
+                        end
+                        repeat task.wait()
+                            lp.Character.HumanoidRootPart.CFrame = is  
+                        until lp.Character.PrimaryPart.CFrame == is  
+                        game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
+                        lp.Character:SetPrimaryPartCFrame(is)
+                        wait(0.1)
+                        lp.Character.Head:Destroy()
+                        wait(0.5)
+                        repeat task.wait()
+                            lp.Character.PrimaryPart.CFrame = is  
+                        until lp.Character:FindFirstChild("Humanoid").Health > 0
+                        task.wait(0.5)
+                    end 
+                end
+            end
+        end
+    end
+end
+function to(Pos)
+    pcall(function()
+        if lp.Character:FindFirstChild("HumanoidRootPart") and lp.Character:FindFirstChild("Humanoid").Health > 0 then
+                Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                if not game.Players.LocalPlayer.Character.PrimaryPart:FindFirstChild("Hold") then
+                    local Hold = Instance.new("BodyVelocity", game.Players.LocalPlayer.Character.PrimaryPart)
+                    Hold.Name = "Hold"
+                    Hold.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+                    Hold.Velocity = Vector3.new(0, 0, 0)
+                end
+                if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
+                end
+                if Distance < 250 then
+                    Speed = 400
+                elseif Distance < 1000 then
+                    Speed = 375
+                elseif Distance >= 1000 then
+                    Speed = 350
+                end
+                pcall(function()
+                    tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance / Speed, Enum.EasingStyle.Linear),{CFrame = Pos})
+                    tween:Play()
+                end)
+                if game:GetService("Players").LocalPlayer.PlayerGui.Main.InCombat.Visible then
+                    if not string.find(string.lower(game:GetService("Players").LocalPlayer.PlayerGui.Main.InCombat.Text), "risk") then
+                        bypass(Pos)
+                    else
+                        dist = math.huge
+                        is = nil
+                        for i , v in pairs(island) do
+                            if (Pos.Position-v.Position).magnitude < dist then
+                                is = v 
+                                dist = (Pos.Position-v.Position).magnitude 
+                            end
+                        end 
+                        if is == nil then return; end
+                        if lp:DistanceFromCharacter(Pos.Position) > distbyp then 
+                            if (lp.Character.Head.Position-Pos.Position).magnitude > (is.Position-Pos.Position).magnitude then
+                                if tween then
+                                    tween:Destroy()
+                                end
+                                if (is.X == 61163.8515625 and is.Y ==11.6796875 and is.Z == 1819.7841796875) or is == CFrame.new(-12471.169921875 + 50, 374.94024658203, -7551.677734375) or is == CFrame.new(-5085.23681640625 + 50, 316.5072021484375, -3156.202880859375) or is == CFrame.new(5749.7861328125 + 50, 611.9736938476562, -276.2497863769531) then
+                                    if tween then
+                                       tween:Cancel()
+                                    end
+                                    repeat task.wait()
+                                        lp.Character.HumanoidRootPart.CFrame = is  
+                                    until lp.Character.PrimaryPart.CFrame == is   
+                                    task.wait(0.1)
+                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                                end
+                            end
+                        end
+                    end
+                else
+                    bypass(Pos)
+                end
+                if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
+                end
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, Pos.Y, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+        end
+    end)
+end
+--- Buso ---
+function buso()
+    if (not (game.Players.LocalPlayer.Character:FindFirstChild("HasBuso"))) then
+        local rel = game.ReplicatedStorage
+        rel.Remotes.CommF_:InvokeServer("Buso")
+    end
+end
+--- Ken ---
+function Ken()
+    if game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui") and game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") and game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel") then
+        buoi = true
+    else
+        game:service("VirtualUser"):CaptureController()
+        game:service("VirtualUser"):SetKeyDown("0x65")
+        game:service("VirtualUser"):SetKeyUp("0x65")
+    end
+end
+--- Sent Key To Cilent ---
+function down(use)
+    pcall(function()
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,use,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+        task.wait(l)
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,use,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+    end)
+end
+--- Equip ---
+function equip(tooltip)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:wait()
+    for _, item in pairs(player.Backpack:GetChildren()) do
+        if item:IsA("Tool") and item.ToolTip == tooltip then
+            local humanoid = character:FindFirstChildOfClass("Humanoid")
+            if humanoid and not humanoid:IsDescendantOf(item) then
+                game.Players.LocalPlayer.Character.Humanoid:EquipTool(item)
+                return true
+            end
+        end
+    end
+    return false
+end
+function EquipWeapon(Tool)
+    pcall(
+        function()
+            if game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) then
+                local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(Tool)
+                ToolHumanoid.Parent = game.Players.LocalPlayer.Character
+            end
+        end
+    )
+end
+--- Click ---
+function Click()
+    game:GetService("VirtualUser"):CaptureController()
+    game:GetService("VirtualUser"):Button1Down(Vector2.new(0,1,0,1))
+end
+--- No Clip ---
+spawn(function()
+    while game:GetService("RunService").Stepped:wait() do
+        pcall(function()
+            if true then
+                local character = game.Players.LocalPlayer.Character
+                for _, v in pairs(character:GetChildren()) do
+                    if v:IsA("BasePart") then
+                        v.CanCollide = false
+                    end
+                end
+            end
+        end)
+    end
+end)
+--- Boots FPS ---
+if getgenv().Setting.Another.FPSBoots then
+    local removedecals = false
+    local g = game
+    local w = g.Workspace
+    local l = g.Lighting
+    local t = w.Terrain
+    t.WaterWaveSize = 0
+    t.WaterWaveSpeed = 0
+    t.WaterReflectance = 0
+    t.WaterTransparency = 0
+    l.GlobalShadows = false
+    l.FogEnd = 9e9
+    l.Brightness = 0
+    settings().Rendering.QualityLevel = "Level01"
+    for i, v in pairs(g:GetDescendants()) do
+        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+        elseif v:IsA("Decal") or v:IsA("Texture") and removedecals then
+            v.Transparency = 1
+        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA("Explosion") then
+            v.BlastPressure = 1
+            v.BlastRadius = 1
+        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+            v.Enabled = false
+        elseif v:IsA("MeshPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+            v.TextureID = 10385902758728957
+        end
+    end
+    for i, e in pairs(l:GetChildren()) do
+        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+            e.Enabled = false
+        end
+    end
+    end
+    
+    function ObjectRemvoe()
+        for i,v in pairs(workspace:GetDescendants()) do
+            if string.find(v.Name,"Tree") or string.find(v.Name,"House") then
+                v:Destroy()
+            end
+        end
+    end
+    
+    function InvisibleObject()
+    for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+        if  (v:IsA("Part") or v:IsA("MeshPart") or v:IsA("BasePart")) and v.Transparency then
+            v.Transparency = 1
+        end
+    end
+    spawn(function()
+        pcall(function()
+            game.ReplicatedStorage.Effect.Container.Death:Destroy()
+            game.ReplicatedStorage.Effect.Container.Respawn:Destroy()
+            game.ReplicatedStorage.Effect.Container.Hit:Destroy()
+        end)
+    end)
+    ObjectRemvoe()
+    InvisibleObject()
+end
+--- White Screen ---
+if getgenv().Setting.Another.WhiteScreen then
+    game.RunService:Set3dRenderingEnabled(false)
+end	
+--- Check Fruit
+function hasValue(array, targetString)
+    for _, value in ipairs(array) do
+        if value == targetString then
+            return true
+        end
+    end
+    return false
+end
+--- Fast Attack
+if getgenv().Setting.Click.FastClick then
+    local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
+    CameraShaker:Stop()
+    fastattack = true
+    CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+    y = debug.getupvalues(CombatFrameworkR)[2]
+    spawn(function()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if fastattack then
+                if typeof(y) == "table" then
+                    pcall(function()
+                        y.activeController.timeToNextAttack = 0
+                        y.activeController.hitboxMagnitude = 60
+                        y.activeController.active = false
+                        y.activeController.timeToNextBlock = 0
+                        y.activeController.focusStart = 1655503339.0980349
+                        y.activeController.increment = 1
+                        y.activeController.blocking = false
+                        y.activeController.attacking = false
+                        y.activeController.humanoid.AutoRotate = true
+                    end)
+                end
+            end
+        end)
+    end)
+    spawn(function()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if fastattack == true then
+            
